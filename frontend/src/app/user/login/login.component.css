@@ -1,0 +1,21 @@
+
+  
+  body {
+    background-color: #ECF0F1;
+  }
+  
+  .page-login {
+    margin-top: 25px;
+    margin-bottom: 10em;
+  }
+
+  @media(min-width: 768px) {
+
+    .container{
+        background-image: url("/assets/images/Kuikenlogin.png");
+        background-repeat: no-repeat;
+        background-position-y: 3em;
+        background-position-x: -2em
+    
+      }
+  }

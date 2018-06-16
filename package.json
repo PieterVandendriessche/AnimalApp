@@ -1,0 +1,35 @@
+{
+ "name": "animalapp",
+ "version": "1.0.0",
+ "description": "Animal app",
+ "homepage": "www.pietervdd.be",
+ "scripts": {
+  "start": "node server",
+  "deploy-backend": "git subtree push --prefix backend animalapp-backend master",
+  "build-frontend": "cd frontend && ng build --prod",
+  "commit-build-changes": "git add . && git commit -m ''",
+  "deploy-frontend": "npm run build-frontend && npm run copy && npm run commit-build-changes && git subtree push --prefix serve-frontend animalapp-frontend master",
+  "copy": "cpx 'frontend/dist/**' serve-frontend/www"
+ },
+ "author": {
+  "name": "Vandendriessche  Pieter",
+  "email": "pietervdd15@gmail.com",
+  "web": "www.pietervdd.be"
+ },
+ "repository": {
+  "type": "git",
+  "url": "git://github.com/Web-IV/web4-20172018-2b12c1-gent-Pietervdd/"
+ },
+ "engines": {
+  "node": ">=6.0.0"
+ },
+ "dependencies": {
+  "connect": "^3.6.5",
+  "serve-static": "^1.13.1"
+ },
+ "license": "MIT",
+ "devDependencies": {
+  "copyfiles": "^2.0.0",
+  "cpx": "^1.5.0"
+ }
+}

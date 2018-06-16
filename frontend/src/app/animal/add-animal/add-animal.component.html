@@ -1,0 +1,48 @@
+<div class="ui segment">
+  <h2 class="ui center aligned icon header">
+    <i class="circular paw icon"></i> Adoptie </h2>
+  <br>
+
+  <br>
+
+  <div class="ui one column stackable center aligned page grid">
+    <img class="ui medium rounded image" src="{{imageUrl}}">
+    <div class="ui form">
+      <form [formGroup]='animal' (ngSubmit)='onSubmit()'>
+        <div class="field">
+          <label for='name_id'>Naam</label>
+          <input type='text' id='name_id' formControlName='name' data-test="animalName">
+
+        </div>
+
+        <div class="field">
+          <label>Soort</label>
+          <select class="ui dropdown" formControlName='soort' data-test="soortSelect">
+            <option *ngFor='let soort of getSoort()'>{{soort}}</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Geslacht</label>
+          <select class="ui dropdown" formControlName='gender' data-test="genderSelect">
+            <option *ngFor='let gender of getGender()'>{{gender}}</option>
+          </select>
+        </div>
+        <br>
+        <div class="field">
+          <button type='submit' class="ui positive center floated button" data-test="btnSubmit">
+            Koop dier ($25.00)
+          </button>
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+  </div>
+  <br>
+  <br>
+  <br>
+</div>

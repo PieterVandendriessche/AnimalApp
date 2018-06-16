@@ -1,0 +1,68 @@
+
+<div class="ui card" >
+  
+  <div class="ui image" >   
+      <img (click)="imgClick($event)" src="{{imageUrl}}">
+    <h1 class="feeling" [@fadeIn] = 'animationState'>{{animal.mood}}</h1>
+  </div>
+  <div class="content">
+   
+
+    <p class="header">{{animal.name}} </p>
+
+    <i [ngClass]="{'mars':animal.male, 'venus':!animal.male}" class="icon"></i>
+    <div class="meta">
+      <span class="date">{{age}}</span>
+    </div>
+    
+
+
+    <br>
+  <div class="extra content">
+    <div class="voedsel"></div>
+    <p>Voedsel</p>
+    <div class="ui progress success" >
+      <div class="bar" [ngStyle]="{width: foodPecentage}">
+        <div class="progress">{{foodPecentage}}</div>
+        
+      </div>
+    </div>
+   
+  </div>
+  <div class="drinken">
+    <p>Drinken</p>
+    <div class="ui blue progress" >
+        <div class="bar" [ngStyle]="{width: waterPercentage}">
+          <div class="progress">{{waterPercentage }}</div>
+          
+        </div>
+  
+      </div>
+    </div>
+    <div class="plezier">
+        <p>Plezier</p>
+        <div class="ui yellow progress" data-tooltip="Geef mij een knuffel! (klik op me)" data-position="right center" data-inverted="">
+            <div class="bar" [ngStyle]="{width: pleasurePercentage}">
+              <div class="progress">{{pleasurePercentage}}</div>
+              
+            </div>
+      
+          </div>
+        </div>
+
+        <button class="circular ui icon button" (click)="toDetails()" data-test="detailBtn">
+          Details 
+            <i class="icon info"></i>
+          </button>
+
+  </div>
+  <div *ngIf="animal.isAlive" class="ui vertical buttons">
+      <button class="ui primary button" (click)="giveFood()" data-test="addFoodBtn">
+          Geef eten
+        </button>
+        <button class="ui primary button" (click)="giveWater()">
+            Geef drinken
+          </button>
+        </div>
+    </div>
+    <br>

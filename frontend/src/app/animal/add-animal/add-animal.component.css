@@ -1,0 +1,14 @@
+.image{
+    background-color: lightblue;
+    max-height: 23em;
+    max-width: 23em;
+    min-height: 23em;
+    min-width: 20em;
+    
+}
+.ui .form{
+    margin-top:  0.5em;
+}
+ .ng-touched .ng-invalid:not(form) {
+    border-left: 5px solid #a94442 !important; 
+  }

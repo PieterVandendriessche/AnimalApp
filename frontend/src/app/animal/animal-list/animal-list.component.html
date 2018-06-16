@@ -1,0 +1,16 @@
+<div class="animal">
+  <br>
+  <br>
+  <div *ngIf="_animals?.length == 0">
+    <h1>Helaas! Je hebt nog geen dieren.</h1> 
+    <h2>Adopteer ze in de winkel.</h2>
+    <br>
+    <button class="ui button primary"  routerLink="/animal-store"  ><i class="shopping cart icon"></i> Dierenwinkel </button>
+
+  </div>
+
+    <div class="ui one column stackable center aligned page grid">
+
+  <app-animal *ngFor='let localAnimal of _animals' [animal]='localAnimal'></app-animal>
+</div>
+</div>

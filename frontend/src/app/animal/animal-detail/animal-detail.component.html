@@ -1,0 +1,39 @@
+<br>
+<div class="ui people shape">
+  <div class="sides">
+    <div class="active side">
+      <div class="ui card">
+        <div class=" image">
+          <img class="ui medium image" src="{{imageUrl}}">
+        </div>
+        <div class="content">
+
+          <div class="header">{{_animal.name}}</div>
+          <div class="meta">
+            <i>{{_animal.soort}}</i>
+          </div>
+          <div class="description">
+            <h4>Humeur:</h4>
+            <p class="waarden">{{_animal.mood}}</p>
+            <h4>Leeftijd:</h4>
+            <p class="waarden">{{_animal.age}} jaar </p>
+            <br> </div>
+          <div class="extra content">
+            <span class="right floated">Geboren: {{_animal.birthdate | date:'dd-MM-yyyy hh:mm'}}</span>
+            <span class="left floated">Geslacht:
+              <i [ngClass]="{'mars':_animal.male, 'venus':!_animal.male}" class="icon"> </i>
+            </span>
+          </div>
+
+        </div>
+        <button class="negative ui button" data-test="deleteBtn" (click)="deleteAnimal()">Verwijder dier</button>
+        <br>
+        <button class="blue ui button" (click)="overzicht()">Terug naar overzicht</button>
+
+
+        <br>
+      </div>
+
+    </div>
+  </div>
+</div>

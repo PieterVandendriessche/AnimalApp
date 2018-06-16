@@ -1,0 +1,21 @@
+img {
+    background-color: lightsalmon;
+    max-height: 23em;
+    max-width: 23em;
+    min-height: 23em;
+    
+}
+
+.card{
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.card img{
+    cursor: pointer;
+}
+.feeling{
+    position: absolute;
+    font-size: 6em;
+    pointer-events: none;
+}

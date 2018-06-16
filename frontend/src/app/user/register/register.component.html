@@ -1,0 +1,55 @@
+<div *ngIf='errorMsg' class="ui error message">
+  {{errorMsg}}</div>
+
+<form [formGroup]='user' (ngSubmit)='onSubmit()' class="ui large form segment">
+
+  <h3 class="ui header">Registreer</h3>
+  <div class="page-login">
+    <div class="ui centered grid container">
+      <div class="fourteen wide column">
+        <div class="ui fluid card">
+          <div class="content">
+            <div class="field">
+              <label for="username">Gebruikersnaam:</label>
+              <input type="text" id="username" formControlName='username' data-test="username" pattern="[a-zA-Z1-9]*">
+              <div class='ui pointing red basic label' *ngIf=' user.get("username").errors?.required && user.get("username").touched'>
+                Een gebruikersnaam is verplicht
+              </div>
+              <div class='ui pointing red basic label' *ngIf=' user.get("username").errors?.pattern && user.get("username").touched'>
+                Enkel letters en cijfers zijn toegestaan.
+              </div>
+              <div class='ui pointing red basic label' *ngIf='user.get("username").errors?.minlength && user.get("username").touched'>
+                De gebruikernaam moet minstens uit {{user.get("username").errors?.minlength.requiredLength }} letters bestsaan
+              </div>
+              <div class='ui pointing red basic label' *ngIf='user.get("username").errors?.userAlreadyExists && user.get("username").touched'>
+                Een gebruiker met deze naam bestaat al!
+              </div>
+            </div>
+            <div formGroupName='passwordGroup'>
+              <div class="field">
+                <label for="password">Wachtwoord:</label>
+                <input type="password" id="password" formControlName='password' data-test="password">
+                <div class='ui pointing red basic label' *ngIf=' passwordControl.errors?.passwordTooShort && passwordControl.touched'>
+                  Wachtwoord is te kort, moet minstens uit: {{passwordControl.errors?.passwordTooShort.requiredLength}} tekens bestaan. (momenteel:
+                  {{passwordControl.errors?.passwordTooShort.actualLength}})
+                </div>
+              </div>
+              <div class="field">
+                <label for="confirmpassword">Herhaal wachtwoord:</label>
+                <input type="password" id="confirmpassword" formControlName='confirmPassword' data-test="passwordConfirm">
+              </div>
+              <div class='ui pointing red basic label' *ngIf=' user.get("passwordGroup").errors?.passwordsDiffer && user.get("passwordGroup").get("confirmPassword").touched  && user.get("passwordGroup").get("password").touched'>
+                Beide wachtwoorden moeten dezelfde zijn.
+              </div>
+            </div>
+            <br>
+            <button class="ui green labeled  icon button" type='submit' [disabled]='!user.valid' data-test="submitBtn">
+              <i class="user plus icon"></i>
+              Registreer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
